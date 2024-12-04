@@ -1,0 +1,97 @@
+@import url(/src/assets/styles/index.css);
+
+:root {
+    --bi-input-background: #3C3C3C;
+    --bi-input-color: #FFF;
+    --bi-button-color: #fff;
+    --bi-button-border: #fff;
+    --bi-button-background: #E82127;
+    --bi-transparent-low: #91222225;
+    --bi-transparent-high: #91222250;
+    --st-spread: 2px;
+    --st-blur: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  background-color: var(--bi-input-background);
+  border: none;
+  color: var(--bi-input-color);
+  padding: 7px 7px;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.2s;
+  font-size: 16px;
+}
+
+input[type="checkbox"],
+select {
+	padding: 7px 6px;
+	cursor: pointer;
+}
+
+label { padding: 7px 10px; }
+
+input[type="radio"] { display: none; }
+
+/* input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+
+input[type="text"]:focus,
+input[type="password"]:focus, */
+
+button {
+	border: 1px solid #ffffff00;
+    background-color: var(--bi-button-background);
+    color: var(--bi-button-color);
+	padding: 5px 7px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: all 0.2s;
+}
+
+button:active {
+    border: 1px solid var(--bi-button-border);
+    transition: all 0.2s;
+}
+
+button:disabled:active,
+button:disabled:hover,
+button:disabled {
+	background-color: #00000050 !important;
+	border: none !important;
+}
+
+.bi-btn-transparent {
+	background-color: #00000000;
+	color: var(--st-white);
+    border-radius: 10px;
+	padding: 10px 10px;
+	transition: all 0.2s;
+    cursor: pointer;
+}
+
+.bi-btn-transparent label {
+	cursor: pointer;
+	width: 100%;
+	padding: 10px 10px;
+}
+
+.bi-btn-transparent:hover {
+	background-color: var(--bi-transparent-low);
+	-webkit-box-shadow: 0px var(--st-spread) var(--st-blur) 0px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0px var(--st-spread) var(--st-blur) 0px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px var(--st-spread) var(--st-blur) 0px rgba(0, 0, 0, 0.25);
+	transition: all 0.2s;
+}
+
+.bi-btn-transparent:active {
+	background-color: var(--bi-transparent-high);
+	transition: all 0.2s;
+}
