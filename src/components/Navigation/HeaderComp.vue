@@ -14,11 +14,6 @@
 <script>
 export default {
   name: "HeaderComp",
-  data() {
-    return {
-      
-    }
-  },
   props: {
     currentTab:String,
     username:String

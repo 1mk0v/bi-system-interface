@@ -1,28 +1,29 @@
 <template>
   <div class="bi-card-container" style="width: auto;">
     <div class="card-header">
-      <span>Title Name</span>
+      <span>{{ title }}</span>
     </div>
-    <div class="card-value" data-module="countup">
-      <span class="prefix">{{ prefix }}</span>
+    <div class="card-value">
+      <span class="prefix" :style="{display: (prefix) ? 'auto' : 'none'}">{{ prefix }}</span>
       <span :id="cardID">{{ value }}</span>
-      <span class="suffix">{{ suffix }}</span>
+      <span class="suffix" :style="{display: (suffix) ? 'auto' : 'none'}">{{ suffix }}</span>
     </div>
-    <div class="card-footer">
-      <span class="">title</span>
-    </div>
+    <FooterDescriprion
+      :footer-id="this.cardID+'-footer'"
+      :value="this.footerValue"
+      :suffix="this.footerSuffix"
+      :display-prefix="this.footerDisplayPrefix"
+      :is-reverse="this.footerIsReverse"
+      :description="this.description">
+    </FooterDescriprion>
   </div>
 </template>
 
 <script>
 import { CountUp } from 'countup.js';
+import FooterDescriprion from './FooterDescriprion.vue';
 export default {
   name: "NumChartCard",
-  data() {
-    return {
-
-    }
-  },
   mounted() {
     const countUp = new CountUp(this.cardID, this.value);
     if (!countUp.error) {
@@ -33,9 +34,19 @@ export default {
   },
   props: {
     cardID: String,
+    title:String,
     value:Number,
     prefix:String,
-    suffix:String
+    suffix:String,
+    footerValue:Number,
+    footerSuffix:String,
+    footerDisplayPrefix:Boolean,
+    footerIsReverse:Boolean,
+    description:String,
+
+  },
+  components: {
+    FooterDescriprion
   }
 }
 </script>

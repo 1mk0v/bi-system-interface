@@ -1,3 +1,7 @@
+:root {
+    --footer-color: #B1B1B1;
+}
+
 .bi-card-container {
     padding: 15px;
     border-radius: 10px;
@@ -14,7 +18,6 @@
     display: flex;
     font-size: 16px;
     font-weight: 300;
-    letter-spacing: 1px;
     justify-content: space-between;
 }
 
@@ -28,7 +31,7 @@
 
 .num-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    grid-template-columns: repeat(2, minmax(350px, 1fr)); 
     width: 100%;
     gap: 10px;
 }
@@ -36,6 +39,6 @@
 .chart {
     display: flex;
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
     max-height: 350px;
 }

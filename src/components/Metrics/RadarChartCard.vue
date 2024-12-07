@@ -1,7 +1,7 @@
 <template>
   <div class="bi-card-container">
     <div class="card-header">
-      <span>Title Name</span>
+      <span>{{ title }}</span>
     </div>
     <div class="radar-container">
       <div class="chart">
@@ -19,52 +19,41 @@ export default {
   data() {
     return {
       chartData: {
-        labels: [
-          'Eating',
-          'Drinking',
-          'Sleeping',
-          'Coding',
-          'Cycling',
-          'Running'
-        ],
+        labels: this.labels,
         datasets: [
           {
-          label: 'My First Dataset',
-          data: [0, 0.1, 0.2, 0.3, 0.4, 0.5 ],
-          fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(255, 99, 132)'
+            label: this.title,
+            data: this.data,
+            fill: true,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgb(255, 99, 132)',
+            pointBackgroundColor: 'rgb(255, 99, 132)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)'
         }
-        ]
+      ]
       },
       chartConfigOptions: {
         responsive: true,
         scales: {
           r: {
-            ticks: {
-              color: '#fff',
-              backdropColor:"#ffffff00"
-            },
+            ticks: { color: '#fff', backdropColor:"#ffffff00" },
             angleLines: { color: '#fff' },
-            grid: { color: '#fff' },
-
-
+            grid: { color: '#fff' }
           }
         },
         plugins: {
-          legend: {
-            display: false
-          }
+          legend: { display: false }
         }
       },
     }
   },
   props: {
-    cardID: String
+    cardID: String,
+    data:Array,
+    labels:Array,
+    title:String
   },
   mounted() {
     Chart.register(...registerables);
@@ -82,6 +71,7 @@ export default {
 @import url(/src/assets/styles/card.css);
 .radar-container {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
 }

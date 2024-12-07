@@ -19,3 +19,11 @@ html body {
   width: 100%;
   gap:10px;
 }
+
+.bi-flex-column
+.bi-flex-row {
+  display: flex;
+}
+
+.bi-flex-column { flex-direction: row; }
+.bi-flex-row { flex-direction: column; }
