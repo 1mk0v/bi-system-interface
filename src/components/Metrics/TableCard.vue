@@ -1,28 +1,35 @@
 <template>
-  <div id="table-container" class="bi-flex-column" v-if="getDataByColumns(data).length > 0">
-    <div class="table-header-container bi-flex-row">
-      <div class="bi-flex-row st-container st-background-light">
-        <div v-for="column in this.columns" style="text-align: center; width: 100%;" :key="column.key">
-          <div>{{ column.value }}</div>
+  <div class="bi-card-container">
+    <div id="table-container" class="bi-flex-column" v-if="getDataByColumns(data).length > 0">
+      <div class="table-header-container bi-flex-row">
+        <div v-for="column in this.columns" :key="column.key">
+          <span>{{ column.value }}</span>
         </div>
       </div>
-    </div>
-    <div class="table-body-container" @scroll="scrollEventHandler">
-      <div class="table-body bi-flex-column" ref="table-scroll">
-        <div class="table-row bi-flex-row" v-for="row in data" :key="row" style="gap:10px; width: 100%;">
-          <div class="table-column" v-for="col in this.columns" :key="col">
-            <span>{{ row[col.key] }}</span>
+      <div class="table-body-container" @scroll="scrollEventHandler">
+        <div class="table-body bi-flex-column" ref="table-scroll">
+          <div class="table-row bi-flex-row" v-for="row, index in data" :key="row">
+            <div class="table-column" v-for="col in this.columns" :key="col">
+              <span v-if="row[col.key]['type'] == 'text'">{{ row[col.key]['data'] }}</span>
+              <span><LineChartCard v-if="row[col.key]['type'] == 'line-chart'"
+                :cardID="'table-line-chart-'+index"
+                :labels="row[col.key]['labels']"
+                :datasets="row[col.key]['datasets']"
+                :notUseContainer="true">
+              </LineChartCard></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="table-null-container" v-else>
-    <span>{{ notFoundTitle || "Данных по данному запросу не было найдено" }}</span>
+    <div id="table-null-container" v-else>
+      <span>{{ notFoundTitle || "Данных по данному запросу не было найдено" }}</span>
+    </div>
   </div>
 </template>
 
 <script>
+import LineChartCard from './LineChartCard.vue';
 export default {
   name: 'DataTable',
   emits: ['scrollOnBottom'],
@@ -31,8 +38,10 @@ export default {
     notFoundTitle: String,
     data: Object
   },
+  components: {
+    LineChartCard
+  },
   methods: {
-
     scrollEventHandler(event) {
       let container = event.target.getBoundingClientRect()
       let currentTable = this.$refs['table-scroll'].getBoundingClientRect()
@@ -89,21 +98,26 @@ export default {
 #table-container {
   width: 100%;
   height: 100%;
-  gap: 10px;
+  gap: 20px;
 }
 
 .table-body {
   width: 100%;
+  gap:10px;
   overflow: overlay;
 }
 
 .table-header-container {
   width: 100%;
+  background-color: #656565;
+  border-radius: 10px;
 }
 
 .table-header-container div {
   width: 100%;
-  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
 }
 
 .table-column {
@@ -115,14 +129,18 @@ export default {
   word-break: break-all;
   width: 100%;
   border-radius: 10px;
-  background-color: var(--st-dark);
+  background-color: #414141;
+}
+
+.table-row { 
+  gap:10px; 
+  width: 100%;
 }
 
 #table-container::-webkit-scrollbar {
   background: none;
   width: 10px;
 }
-
 
 #table-null-container {
   display: flex;

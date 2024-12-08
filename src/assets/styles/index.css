@@ -3,6 +3,8 @@
     --nav-background: #2C2C2C;
     --card-background: #2C2C2C;
     --username-photo-background: #2C2C2C;
+    --bi-dark: rgba(0, 0, 0, 0.3);
+
 }
   
 html body {
@@ -20,10 +22,30 @@ html body {
   gap:10px;
 }
 
-.bi-flex-column
+.main-container {
+  padding: 30px;
+  padding-left: 60px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  gap: 30px;
+}
+
+.body-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 30px;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.bi-flex-column,
 .bi-flex-row {
   display: flex;
 }
 
-.bi-flex-column { flex-direction: row; }
-.bi-flex-row { flex-direction: column; }
+.bi-flex-column { flex-direction: column; }
+.bi-flex-row { flex-direction: row; }

@@ -3,7 +3,7 @@
     <div class="card-header">
       <span>{{ title }}</span>
     </div>
-    <div class="card-value">
+    <div class="card-value" v-if="value != undefined">
       <span class="prefix" :style="{ display: (prefix) ? 'auto' : 'none'}">{{ prefix }}</span>
       <span :id="cardID+'-count-up'">{{ value }}</span>
       <span class="suffix" :style="{ display: (suffix) ? 'auto' : 'none'}">{{ suffix }}</span>
@@ -11,7 +11,7 @@
     <div class="chart">
       <canvas :id="cardID"></canvas>
     </div>
-    <FooterDescriprion
+    <FooterDescriprion v-if="footerValue != undefined"
       :footer-id="this.cardID+'-footer'"
       suffix="%"
       :value="footerValue"
@@ -34,7 +34,7 @@ export default {
     data:Array,
     prefix:String,
     suffix:String,
-    value:Number,
+    value:[Number, String],
     footerValue:Number,
     footerDescription:String,
   },
@@ -52,16 +52,13 @@ export default {
       },
       options: {
         maintainAspectRatio: false,
-        plugins: {
-          legend: { position: "left", },
-        }
+        plugins: { legend: { position: "left" } }
       }
     });
-    const countUp = new CountUp(this.cardID+"-count-up", this.value);
-    if (!countUp.error) {
-      countUp.start();
-    } else {
-      console.error(countUp.error);
+    if (!isNaN(this.value)) {
+      const countUp = new CountUp(this.cardID+"-count-up", this.value);
+      if (!countUp.error) { countUp.start() } 
+      else { console.error(countUp.error) }
     }
   }
 }

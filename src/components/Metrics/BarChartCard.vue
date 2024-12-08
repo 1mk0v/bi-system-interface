@@ -1,12 +1,9 @@
 <template>
-  <div class="chart" v-if="notUseContainer">
-    <canvas :id="cardID"></canvas>
-  </div>
-  <div class="bi-card-container" v-else>
-    <div class="card-header" v-if="title">
+  <div class="bi-card-container">
+    <div class="card-header">
       <span>{{ title }}</span>
     </div>
-    <div class="chart" style="max-width: 100%">
+    <div class="chart" style="max-width: 100%;">
       <canvas :id="cardID"></canvas>
     </div>
   </div>
@@ -16,19 +13,18 @@
 import { Chart, registerables } from 'chart.js';
 
 export default {
-  name: "LineChartCard",
+  name: "BarChartCard",
   props: {
     cardID: String,
     title: String,
     labels: Array,
     datasets: Array,
-    notUseContainer:Boolean
   },
   mounted() {
     Chart.register(...registerables);
     const ctx = document.getElementById(this.cardID);
     new Chart(ctx, {
-      type: 'line',
+      type: 'bar',
       data: { labels: this.labels, datasets: this.datasets },
       options: {
         responsive: true,
