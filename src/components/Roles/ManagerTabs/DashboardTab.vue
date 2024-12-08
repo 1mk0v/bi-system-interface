@@ -29,8 +29,8 @@
       <LineChartCard cardID="line-chart-1" title="Sales dynamics"
         :labels="['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
         :datasets="[
-          { label: 'Dataset 1', data: [12, 15, 21, 10, 16, 11, 20, 22, 18, 17, 14, 13] },
-          { label: 'Dataset 2', data: [11, 16, 20, 10, 15, 10, 21, 24, 15, 10, 18, 11] }
+          { label: 'Dataset 1', data: [12, 15, 21, 10, 16, 11, 20, 22, 18, 17, 14, 13], tension: 0.3 },
+          { label: 'Dataset 2', data: [11, 16, 20, 10, 15, 10, 21, 24, 15, 10, 18, 11], tension: 0.3 }
         ]">
       </LineChartCard>
       <PhotoCard title="Most popular" value="Tesla Model S"

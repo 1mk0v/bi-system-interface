@@ -11,12 +11,12 @@
           <div class="table-row bi-flex-row" v-for="row, index in data" :key="row">
             <div class="table-column" v-for="col in this.columns" :key="col">
               <span v-if="row[col.key]['type'] == 'text'">{{ row[col.key]['data'] }}</span>
-              <span><LineChartCard v-if="row[col.key]['type'] == 'line-chart'"
+              <LineChartCard v-else
                 :cardID="'table-line-chart-'+index"
-                :labels="row[col.key]['labels']"
-                :datasets="row[col.key]['datasets']"
+                :labels="row[col.key]['data']['labels']"
+                :datasets="row[col.key]['data']['datasets']"
                 :notUseContainer="true">
-              </LineChartCard></span>
+              </LineChartCard>
             </div>
           </div>
         </div>
@@ -132,6 +132,9 @@ export default {
   background-color: #414141;
 }
 
+.table-column .chart {
+  width: 100%;
+}
 .table-row { 
   gap:10px; 
   width: 100%;

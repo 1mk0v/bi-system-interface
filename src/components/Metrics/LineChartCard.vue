@@ -22,7 +22,7 @@ export default {
     title: String,
     labels: Array,
     datasets: Array,
-    notUseContainer:Boolean
+    notUseContainer: Boolean
   },
   mounted() {
     Chart.register(...registerables);
