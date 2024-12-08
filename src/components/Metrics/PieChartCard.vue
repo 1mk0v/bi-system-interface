@@ -8,8 +8,10 @@
       <span :id="cardID+'-count-up'">{{ value }}</span>
       <span class="suffix" :style="{ display: (suffix) ? 'auto' : 'none'}">{{ suffix }}</span>
     </div>
-    <div class="chart">
-      <canvas :id="cardID"></canvas>
+    <div class="chart-container">
+      <div class="chart">
+        <canvas :id="cardID"></canvas>
+      </div>
     </div>
     <FooterDescriprion v-if="footerValue != undefined"
       :footer-id="this.cardID+'-footer'"

@@ -3,8 +3,10 @@
     <div class="card-header">
       <span>{{ title }}</span>
     </div>
-    <div class="chart" style="max-width: 100%;">
-      <canvas :id="cardID"></canvas>
+    <div class="chart-container">
+      <div class="chart" style="max-width: 100%;">
+        <canvas :id="cardID"></canvas>
+      </div>
     </div>
   </div>
 </template>

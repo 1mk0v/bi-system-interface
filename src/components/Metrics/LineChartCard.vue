@@ -6,8 +6,10 @@
     <div class="card-header" v-if="title">
       <span>{{ title }}</span>
     </div>
-    <div class="chart" style="max-width: 100%">
-      <canvas :id="cardID"></canvas>
+    <div class="chart-container">
+      <div class="chart">
+        <canvas :id="cardID"></canvas>
+      </div>
     </div>
   </div>
 </template>
@@ -44,4 +46,5 @@ export default {
 
 <style scoped>
 @import url(/src/assets/styles/card.css);
+
 </style>
