@@ -3,7 +3,7 @@
     <div class="card-header">
       <span>{{ title }}</span>
     </div>
-    <div class="radar-container">
+    <div class="chart-container">
       <div class="chart">
         <canvas :id="cardID"></canvas>
       </div>

@@ -51,73 +51,53 @@
   </div>
   <div class="dataset-container" style="overflow: hidden;">
     <TableCard :columns="[
-      { key: 'client', value: 'Client' },
-      { key: 'reg_date', value: 'Registration date' },
-      { key: 'sale_date', value: 'Sale date' },
-      { key: 'product_name', value: 'Product name' },
-      { key: 'sale_amount', value: 'Sale amount' }
+      { key: 'office', value: 'Office' },
+      { key: 'kpi', value: 'KPI' },
+      { key: 'plan', value: 'Plan' },
+      { key: 'complete', value: 'Complete' }
     ]" :data="[
           {
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          }, {
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
-          },{
-            'client': {'type':'text', 'data':'Name Surename'},
-            'reg_date': {'type':'text', 'data':'10.11.2024'},
-            'sale_date': {'type':'text', 'data':'10.15.2024'},
-            'product_name': {'type':'text', 'data':'Tesla Model S'},
-            'sale_amount': {'type':'text', 'data':'$ 20244'},
+            'office': {'type':'text', 'data':'Troparevo'},
+            'kpi': {'type':'text', 'data':'40%'},
+            'plan': {'type':'text', 'data':'$ 412412'},
+            'complete': {'type':'text', 'data':'47%'}
           },
+          {
+            'office': {'type':'text', 'data':'Troparevo'},
+            'kpi': {'type':'text', 'data':'40%'},
+            'plan': {'type':'text', 'data':'$ 412412'},
+            'complete': {'type':'text', 'data':'47%'}
+          },
+          {
+            'office': {'type':'text', 'data':'Troparevo'},
+            'kpi': {'type':'text', 'data':'40%'},
+            'plan': {'type':'text', 'data':'$ 412412'},
+            'complete': {'type':'text', 'data':'47%'}
+          },
+          {
+            'office': {'type':'text', 'data':'Troparevo'},
+            'kpi': {'type':'text', 'data':'40%'},
+            'plan': {'type':'text', 'data':'$ 412412'},
+            'complete': {'type':'text', 'data':'47%'}
+          },
+          {
+            'office': {'type':'text', 'data':'Troparevo'},
+            'kpi': {'type':'text', 'data':'40%'},
+            'plan': {'type':'text', 'data':'$ 412412'},
+            'complete': {'type':'text', 'data':'47%'}
+          },
+          {
+            'office': {'type':'text', 'data':'Troparevo'},
+            'kpi': {'type':'text', 'data':'40%'},
+            'plan': {'type':'text', 'data':'$ 412412'},
+            'complete': {'type':'text', 'data':'47%'}
+          },
+          {
+            'office': {'type':'text', 'data':'Troparevo'},
+            'kpi': {'type':'text', 'data':'40%'},
+            'plan': {'type':'text', 'data':'$ 412412'},
+            'complete': {'type':'text', 'data':'47%'}
+          }
         ]"></TableCard>
   </div>
 </template>
@@ -133,9 +113,7 @@ import TopManagersCard from '@/components/Metrics/TopManagersCard.vue';
 export default {
   name: "DashboardTab",
   data() {
-    return {
 
-    }
   },
   components: {
     PieChartCard, LineChartCard, NumChartCard, TableCard, BarChartCard, TopManagersCard
